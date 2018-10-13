@@ -8,12 +8,10 @@
 </ion-header>
 
 <ion-content padding>
-  <div style="text-align: center">
-    <img src="https://www.imt-atlantique.fr/sites/default/files/Images/Ecole/charte-graphique/IMT_Atlantique_logo_RVB_Baseline_400x272.jpg" />
-    <h2>Conférence DevFest 2018</h2>
-    <h5>18 Octobre - 19 Octobre</h5>
+  <div id="home_content">
+    <img src="../../img/devfest.png" /> 
 
     <button id="button_session" ion-button secondary (click)="directToListSession()" >Voir les sessions</button>
-    <button id="button_presentateur" ion-button secondary menuToggle>Voir les présentateurs</button>
+    <button id="button_presentateur" ion-button secondary (click)="directToListSpeakers()">Voir les présentateurs</button>
   </div>
 </ion-content>
