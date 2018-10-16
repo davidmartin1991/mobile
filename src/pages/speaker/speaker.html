@@ -15,7 +15,14 @@
 
 
 <ion-content padding>
-  <h2>{{ name }}</h2>
-  <img src={{photoUrl}}/>
-  <div>{{ bio }}</div>
+    <h2>{{ name }}</h2>
+    <img src={{photoUrl}}/>
+    <div id="bio_speaker">{{ bio }}</div>
+
+    <div>
+        <h2>Ses présentations :</h2>
+        <ion-list>
+            <button class="boutton_speaker_sessions" ion-item *ngFor="let session of sessions" (click)="directToSession(session)">{{session.title}}</button>
+          </ion-list>
+    </div>
 </ion-content>

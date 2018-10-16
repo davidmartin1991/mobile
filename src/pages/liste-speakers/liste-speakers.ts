@@ -27,7 +27,6 @@ export class ListeSpeakersPage {
  }
 
  directToSpeaker(speaker:any){
-   console.debug("https://devfest.gdgnantes.com"+speaker.photoUrl);
    this.navCtrl.push(SpeakerPage,{
      id: speaker.id,
      name: speaker.name,

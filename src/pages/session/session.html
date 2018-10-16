@@ -16,11 +16,16 @@
 
 <ion-content padding>
   <h2>{{ title }}</h2>
-  <div>{{ description }}</div>
+  <div id="description">{{ description }}</div>
 
   <div>
     <ion-list>
-      <div ion-item *ngFor="let speaker of speakers">{{ speaker }}</div>
+      <div ion-item *ngFor="let speaker of speakers">
+        <ion-thumbnail item-left>
+            <img src="{{'https://devfest.gdgnantes.com/' + speaker.photoUrl}}"/>
+        </ion-thumbnail>
+        <button id="boutton_session" item-right (click)="directToSpeaker(speaker)">{{speaker.name}}</button>
+      </div>
     </ion-list>
   </div>
 </ion-content>

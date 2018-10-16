@@ -32,7 +32,7 @@ export class ListeSessionsPage {
      id: session.id,
      title: session.title,
      description: session.description,
-     speakers: session.speakers
+     speakers: session.speakers == undefined ? undefined : Array.from(session.speakers)
    });
  }
 
