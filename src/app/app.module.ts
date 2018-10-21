@@ -11,6 +11,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ComponentsModule } from '../components/components.module'
 import { ListeSessionsPage } from '../pages/liste-sessions/liste-sessions';
 
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { DataProvider } from '../providers/data/data';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +26,8 @@ import { ListeSessionsPage } from '../pages/liste-sessions/liste-sessions';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ComponentsModule,
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,7 +39,8 @@ import { ListeSessionsPage } from '../pages/liste-sessions/liste-sessions';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}
