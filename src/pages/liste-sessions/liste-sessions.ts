@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
-import { DataProvider } from '../../providers/data/data';
-import {Observable} from 'rxjs/Observable';
-import { Session } from '../../models/models';
+import { HttpClient } from '@angular/common/http';
+import { SessionPage } from '../session/session';
 
 /**
  * Generated class for the ListeSessionsPage page.
@@ -17,22 +15,25 @@ import { Session } from '../../models/models';
   selector: 'page-liste-sessions',
   templateUrl: 'liste-sessions.html',
 })
-export class ListeSessionsPage implements OnInit {
+export class ListeSessionsPage {
+  sessions:any
 
-  sessions:Session[] = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private data: DataProvider) {
-    
-  }
-  ngOnInit() {
-    console.log('ionViewDidLoad ListeSessionsPage');
-   this.data.fetch("https://devfest-nantes-2018-api.cleverapps.io/sessions").subscribe(sessions => {
-      this.sessions = sessions; 
-  });
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http:HttpClient) {
   }
 
-  ionViewDidLoad() {
-   
-  }
+  ngOnInit(): void {
+    this.http.get("https://devfest-nantes-2018-api.cleverapps.io/sessions").subscribe(data => {
+     this.sessions = Object.keys(data).map(i => data[i]);
+   }); 
+ }
+
+ directToSession(session: any){
+   this.navCtrl.push(SessionPage,{
+     id: session.id,
+     title: session.title,
+     description: session.description,
+     speakers: session.speakers == undefined ? undefined : Array.from(session.speakers)
+   });
+ }
 
 }
