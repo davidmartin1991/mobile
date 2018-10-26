@@ -1,0 +1,41 @@
+<!--
+  Generated template for the PhonePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Phone</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Phone information</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col>Platform</ion-col>
+      <ion-col>{{ platform }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Version</ion-col>
+      <ion-col>{{ version }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>UUID</ion-col>
+      <ion-col>{{ uuid }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Model</ion-col>
+      <ion-col>{{ model }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Connection</ion-col>
+      <ion-col>{{ connection }}</ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

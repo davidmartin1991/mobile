@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import {HttpClientModule} from '@angular/common/http';
+import { Device } from '@ionic-native/device';
+import { Network } from '@ionic-native/network';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -14,6 +16,7 @@ import { ListeSessionsPage } from '../pages/liste-sessions/liste-sessions';
 import { ListeSpeakersPage } from '../pages/liste-speakers/liste-speakers';
 import { SessionPage } from '../pages/session/session';
 import { SpeakerPage } from '../pages/speaker/speaker';
+import { PhonePage } from '../pages/phone/phone';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { SpeakerPage } from '../pages/speaker/speaker';
     ListeSpeakersPage,
     SessionPage,
     SpeakerPage,
+    PhonePage,
+
   ],
   imports: [
     BrowserModule,
@@ -40,10 +45,13 @@ import { SpeakerPage } from '../pages/speaker/speaker';
     ListeSpeakersPage,
     SessionPage,
     SpeakerPage,
+    PhonePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Device,
+    Network,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
