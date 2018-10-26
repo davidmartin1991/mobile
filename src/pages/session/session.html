@@ -27,8 +27,9 @@
         <button id="boutton_session" item-right (click)="directToSpeaker(speaker)">{{speaker.name}}</button>
       </div>
     </ion-list>
+    
     <div id="notes_container">
-      <button id="mes_notes" ion-button color="secondary">Mes notes</button>
+      <button id="mes_notes" ion-button color="secondary" (click)="directToNote(id)">Mes notes</button>
     </div>
   </div>
 </ion-content>

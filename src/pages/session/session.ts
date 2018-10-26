@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { SpeakerPage } from '../speaker/speaker';
+import { NotesPage } from '../notes/notes';
 
 /**
  * Generated class for the SessionPage page.
@@ -36,12 +37,19 @@ export class SessionPage {
  }
 
  directToSpeaker(speaker: any){
-    this.navCtrl.push(SpeakerPage,{
-        id: speaker.id,
-        name: speaker.name,
-        photoUrl: speaker.photoUrl,
-        bio: speaker.bio
-   })
- }
+  this.navCtrl.push(SpeakerPage,{
+      id: speaker.id,
+      name: speaker.name,
+      photoUrl: speaker.photoUrl,
+      bio: speaker.bio
+ })
+}
+
+directToNote(speaker: any){
+  this.navCtrl.push(NotesPage,{
+      id: this.id,
+      title : this.title
+ })
+}
 
 }

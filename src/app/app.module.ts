@@ -17,6 +17,12 @@ import { ListeSpeakersPage } from '../pages/liste-speakers/liste-speakers';
 import { SessionPage } from '../pages/session/session';
 import { SpeakerPage } from '../pages/speaker/speaker';
 import { PhonePage } from '../pages/phone/phone';
+import { NotesPage } from '../pages/notes/notes';
+
+import { HttpModule } from '@angular/http';
+
+import { AppPreferences } from '@ionic-native/app-preferences';
+
 
 @NgModule({
   declarations: [
@@ -28,13 +34,15 @@ import { PhonePage } from '../pages/phone/phone';
     SessionPage,
     SpeakerPage,
     PhonePage,
-
+    NotesPage,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     ComponentsModule,
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,14 +53,16 @@ import { PhonePage } from '../pages/phone/phone';
     ListeSpeakersPage,
     SessionPage,
     SpeakerPage,
-    PhonePage
+    PhonePage,
+    NotesPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Device,
     Network,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppPreferences
   ]
 })
 export class AppModule {}
