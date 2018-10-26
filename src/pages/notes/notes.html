@@ -15,8 +15,6 @@
 
 <ion-content padding>
   <h2>{{ title }}</h2>
-
-  <button id="save_note" item-right (click)="directToSpeaker(speaker)">{{speaker.name}}</button>
-
-  <ion-textarea></ion-textarea>
+  <ion-textarea [(ngModel)]="note"></ion-textarea>
+  <button id="save_note" item-right (click)="saveNote(speaker)">Save</button>
 </ion-content>

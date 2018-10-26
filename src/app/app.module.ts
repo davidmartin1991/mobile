@@ -19,6 +19,8 @@ import { NotesPage } from '../pages/notes/notes';
 import { HttpModule } from '@angular/http';
 import { DataProvider } from '../providers/data/data';
 
+import { AppPreferences } from '@ionic-native/app-preferences';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -53,7 +55,8 @@ import { DataProvider } from '../providers/data/data';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
+    DataProvider,
+    AppPreferences
   ]
 })
 export class AppModule {}
