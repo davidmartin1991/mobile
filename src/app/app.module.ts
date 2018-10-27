@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import {HttpClientModule} from '@angular/common/http';
 import { Device } from '@ionic-native/device';
 import { Network } from '@ionic-native/network';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -42,7 +43,8 @@ import { AppPreferences } from '@ionic-native/app-preferences';
     IonicModule.forRoot(MyApp),
     ComponentsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

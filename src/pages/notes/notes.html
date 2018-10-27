@@ -5,16 +5,19 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Mes Notes</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <h2>{{ title }}</h2>
-  <ion-textarea [(ngModel)]="note"></ion-textarea>
-  <button id="save_note" item-right (click)="saveNote(speaker)">Save</button>
+
+  <div id="notesContainer">
+      <h2>{{ title }}</h2>
+      <textarea id="textareaContainer" [(ngModel)]="note">{{note}}</textarea>
+      <div id="buttonContainer">
+        <button ion-button color="secondary" id="save_note" item-right (click)="saveNote(note)">Save</button>
+      </div>
+  </div>
 </ion-content>

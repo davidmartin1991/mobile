@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppPreferences } from '@ionic-native/app-preferences';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the NotesPage page.
@@ -19,19 +20,18 @@ export class NotesPage {
   title: any
   note: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private appPreferences: AppPreferences) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     this.id = navParams.get('id')
     this.title = navParams.get('title')
   }
 
   ionViewDidLoad() {
-    this.note = this.appPreferences.fetch(this.id)
+    this.storage.get(this.id).then(value => this.note = value);
   }
 
-  saveNote() {
-    let note = this.note
-    let id = this.id
-    this.appPreferences.store(id, note);
+  saveNote(aNote) {
+    this.note = aNote;
+    this.storage.set(this.id,aNote);
   }
 
 }
